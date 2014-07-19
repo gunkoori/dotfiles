@@ -146,3 +146,4 @@ if has('vim_starting')
 		"filetype plugin on
 		"filetype indent on
 
+colorscheme railscasts
