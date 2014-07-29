@@ -66,7 +66,31 @@ vmap <silent> sy :!pbcopy; pbpaste<CR>
 "`sp' でClipBoardから張り付け。インサートモードでctr+vでも貼り付けできる
 map <silent> sp <esc>o<esc>v :!pbpaste<CR>
 
+"-------------------------------------------------
+" NERDTree
+"-------------------------------------------------
+" マウス操作方法
+" 1 : ファイル、ディレクトリ両方共ダブルクリックで開く
+" 2 : ディレクトリのみシングルクリックで開く
+" 3 : ファイル、ディレクトリ両方共シングルクリックで開く
+let g:NERDTreeMouseMode=3
 
+" <C-e>でNERDTreeをオンオフ いつでもどこでも
+nmap <silent> <C-e>      :NERDTreeToggle<CR>
+vmap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+omap <silent> <C-e>      :NERDTreeToggle<CR>
+imap <silent> <C-e> <Esc>:NERDTreeToggle<CR>
+cmap <silent> <C-e> <C-u>:NERDTreeToggle<CR>
+
+" 引数なしでvimを開いたらNERDTreeを起動、
+" 引数ありならNERDTreeは起動しない、引数で渡されたファイルを開く
+autocmd vimenter * if !argc() | NERDTree | endif
+" 他のバッファをすべて閉じた時にNERDTreeが開いていたらNERDTreeも一緒に閉じる
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" 無視するファイルを設定する
+let g:NERDTreeIgnore=['\.clean$', '\.swp$', '\.bak$', '\~$']
+" 隠しファイルを表示するか
+let g:NERDTreeShowHidden=0
 "-------------------------------------------------
 " neocomplcache設定
 "-------------------------------------------------
