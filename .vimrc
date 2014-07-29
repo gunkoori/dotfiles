@@ -131,6 +131,8 @@ if has('vim_starting')
         NeoBundle 'Yggdroot/indentLine'
         NeoBundle 'Shougo/unite.vim' " ファイルオープンを便利に
         NeoBundle 'Shougo/neomru.vim' " Unite.vimで最近使ったファイルを表示できるようにする
+        NeoBundle 'scrooloose/nerdtree'
+
 
 	    " Color Scheme
 		NeoBundle 'tomasr/molokai'
